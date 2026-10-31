@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Геоинформационная база данных болотных почв заповедника БАСЕГИ">
+  <title>БАСЕГИ — база данных болотных почв</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.2.1/ol.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">ПГАТУ</div>
+    <div class="brand-text">
+      <div class="eyebrow">ГЕОИНФОРМАЦИОННАЯ БАЗА ДАННЫХ</div>
+      <h1>Болотные почвы заповедника «БАСЕГИ»</h1>
+    </div>
+    <div class="topbar-note">Панель отображения сведений о почвенных разрезах</div>
+  </header>
+
+  <main class="workspace">
+    <aside class="sidebar">
+      <section class="section-heading">
+        <div>
+          <div class="eyebrow">КАТАЛОГ</div>
+          <h2>Почвенные разрезы</h2>
+        </div>
+        <span class="count" id="profile-count">—</span>
+      </section>
+
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input id="search" type="search" placeholder="Найти разрез или почву…" autocomplete="off">
+      </label>
+
+      <label class="layer-toggle">
+        <input id="points-toggle" type="checkbox" checked>
+        <span class="toggle-ui"></span>
+        <span>Показывать точки разрезов</span>
+      </label>
+
+      <div class="list-caption">СПИСОК ОБЪЕКТОВ</div>
+      <div class="profile-list" id="profile-list" aria-label="Список почвенных разрезов">
+        <div class="loading">Загрузка данных…</div>
+      </div>
+
+      <div class="sidebar-footer">&copy; 2026 кафедра почвоведения ФГБОУ ВО Пермский ГАТУ</div>
+    </aside>
+
+    <section class="map-column">
+      <div class="map-toolbar">
+        <div class="map-title"><span class="live-dot"></span> Пространственное расположение разрезов</div>
+        <button class="map-action" id="show-all" type="button" title="Показать все разрезы">Показать все</button>
+      </div>
+      <div id="map" class="map" aria-label="Карта расположения почвенных разрезов"></div>
+      <div class="map-attribution-note">Подложка: © OpenStreetMap contributors</div>
+    </section>
+
+    <aside class="details-panel" id="details-panel">
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon">◎</div>
+        <h2>электронная форма<br> почвенного разреза</h2>
+        <p>Выберите точку на карте или объект в каталоге, чтобы открыть описание и аналитические характеристики почвенного профиля.</p>
+        <div class="empty-hint">Выберите разрез в списке слева</div>
+      </div>
+      <div id="profile-details" hidden></div>
+    </aside>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ol@v10.2.1/dist/ol.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
